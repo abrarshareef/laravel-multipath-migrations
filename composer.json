@@ -22,7 +22,7 @@
 			"src/Providers"
 		],
 		"psr-4": {
-			"DavidZHolland\\Laravel\\MultipathMigrations\\": "src"
+			"DavidzHolland\\Laravel\\MultipathMigrations\\": "src"
 		}
 	},
 	"version": "0.0.0"
