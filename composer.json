@@ -1,0 +1,29 @@
+{
+	"name": "davidzholland/laravel-multipath-migrations",
+	"description": "Laravel 5 migrations that source from multiple directories.",
+	"license": "GPL-3.0",
+	"keywords": [
+		"laravel",
+		"migrations",
+		"paths"
+	],
+	"authors": [
+		{
+			"name": "David Z. Holland"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"illuminate/console": "5.1.*"
+	},
+	"autoload": {
+		"classmap": [
+			"src/Classes",
+			"src/Providers"
+		],
+		"psr-4": {
+			"DavidZHolland\\Laravel\\MultipathMigrations\\": "src"
+		}
+	},
+	"version": "0.0.0"
+}
