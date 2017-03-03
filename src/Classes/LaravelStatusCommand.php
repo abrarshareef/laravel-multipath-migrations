@@ -1,6 +1,6 @@
 <?php
 
-namespace DavidzHolland\Laravel;
+namespace DavidzHolland\Laravel\MultipathMigrations;
 
 use Illuminate\Database\Migrations\Migrator;
 use Symfony\Component\Console\Input\InputOption;

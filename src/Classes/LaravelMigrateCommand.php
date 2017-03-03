@@ -1,9 +1,7 @@
 <?php
 
-namespace DavidzHolland\Laravel;
+namespace DavidzHolland\Laravel\MultipathMigrations;
 
-use Illuminate\Console\ConfirmableTrait;
-use DavidzHolland\Laravel\LaravelMigrator;
 use Symfony\Component\Console\Input\InputOption;
 use Illuminate\Database\Console\Migrations\MigrateCommand;
 
