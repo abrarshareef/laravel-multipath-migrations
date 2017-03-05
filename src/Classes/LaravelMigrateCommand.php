@@ -2,6 +2,7 @@
 
 namespace DavidzHolland\Laravel\MultipathMigrations;
 
+use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Input\InputOption;
 use Illuminate\Database\Console\Migrations\MigrateCommand;
 
@@ -17,6 +18,11 @@ class LaravelMigrateCommand extends MigrateCommand
     {
         if (! $this->confirmToProceed()) {
             return;
+        }
+
+        if ($this->input->getOption('before'))
+        {
+            $this->call($this->input->getOption('before'));
         }
 
         $this->prepareDatabase();
@@ -58,6 +64,11 @@ class LaravelMigrateCommand extends MigrateCommand
         if ($this->input->getOption('seed')) {
             $this->call('db:seed', ['--force' => true]);
         }
+
+        if ($this->input->getOption('after'))
+        {
+            $this->call($this->input->getOption('after'));
+        }
     }
 
     /**
@@ -77,6 +88,10 @@ class LaravelMigrateCommand extends MigrateCommand
             ['pretend', null, InputOption::VALUE_NONE, 'Dump the SQL queries that would be run.'],
 
             ['seed', null, InputOption::VALUE_NONE, 'Indicates if the seed task should be re-run.'],
+
+            ['before', null, InputOption::VALUE_NONE, 'Command to be run before migrations.'],
+
+            ['after', null, InputOption::VALUE_NONE, 'Command to be run after migrations.'],
         ];
     }
 }
