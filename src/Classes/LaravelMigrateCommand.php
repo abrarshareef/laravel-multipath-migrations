@@ -16,6 +16,9 @@ class LaravelMigrateCommand extends MigrateCommand
      */
     public function fire()
     {
+        //place this before any script you want to calculate time
+        $time_start = microtime(true);
+
         if (! $this->confirmToProceed()) {
             return;
         }
@@ -69,6 +72,19 @@ class LaravelMigrateCommand extends MigrateCommand
         {
             $this->call($this->input->getOption('after'));
         }
+
+        $this->info('...Elapsed Time: '. $this->getElapsedTime($time_start) . 's');
+    }
+
+    private function getElapsedTime($time_start)
+    {
+        $time_end = microtime(true);
+
+        //dividing with 60 will give the execution time in minutes other wise seconds
+        $execution_time = round(($time_end - $time_start) * 100) / 100;
+
+        //execution time of the script
+        return $execution_time;
     }
 
     /**
